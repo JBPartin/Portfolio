@@ -1,0 +1,362 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  list-style: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+#frontpage {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(30, 30, 40),
+    rgb(30, 30, 35) 100%
+  );
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  z-index: -1;
+}
+#frontpage h1 {
+  display: flex;
+  color: white;
+  justify-content: center;
+  text-align: center;
+}
+
+.color--red {
+  margin-left: 10px;
+  color: rgb(164, 250, 238);
+}
+
+#intro {
+  font-size: 100%;
+  z-index: 1;
+}
+#background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+#mywork {
+  margin: 20px auto auto auto;
+  padding: 2px 15px;
+  background-color: transparent;
+  outline: 2px solid white;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease-in-out 0.35s;
+}
+
+#mywork p {
+  padding-right: 10px;
+  justify-content: center;
+}
+
+#mywork i {
+  font-size: 20px;
+}
+#workarrow {
+  color: white;
+  transition: ease-in-out 0.35s;
+  transform-origin: center center;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+}
+
+#mywork p {
+  color: white;
+  font-size: 30px;
+}
+
+#mywork:hover {
+  background: rgb(190, 50, 50);
+  outline: 3px solid rgb(241, 90, 90);
+  cursor: pointer;
+}
+
+nav {
+  height: 50px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: rgb(30, 30, 45);
+  border-bottom: 3px solid lightslategray;
+  z-index: 999;
+}
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 20px;
+}
+nav ul li {
+  margin: 10px 0;
+}
+
+nav ul li a {
+  font-weight: 1000;
+  margin: 0px auto;
+  color: white;
+  font-size: 20px;
+}
+
+nav a:hover {
+  color: rgb(241, 90, 90);
+}
+
+nav a:active {
+  color: rgb(255, 130, 130);
+}
+
+#project__container {
+  height: 200vh;
+  width: 100%;
+}
+
+#hamburger {
+  margin: auto;
+  width: 25px;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+footer {
+  height: 10rem;
+  background: rgb(30, 30, 45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  font-size: 15px;
+  position: relative;
+  color: white;
+  border-top: 2px solid rgb(21, 21, 31);
+  z-index: 4;
+}
+
+aqua {
+  color: aqua;
+}
+
+footer p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#top {
+  position: absolute;
+  display: flex;
+  justify-self: center;
+  background: rgb(53, 53, 80);
+  padding: 20px 10px;
+  top: -10%;
+  border-radius: 10%;
+  color: aqua;
+  z-index: 5;
+}
+
+#contact__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  font-size: 30px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: white;
+}
+
+#contactbar {
+  width: 8rem;
+  height: 3px;
+  margin-top: 10px;
+  background-color: white;
+}
+#contact__form p {
+  color: aqua;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#input-message {
+  resize: none;
+  height: 150px;
+}
+
+#form__container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 100%;
+  margin: 20px;
+}
+
+.contactinfo {
+  padding: 5px;
+  margin: 0 0 5px 0;
+  background-color: rgb(32, 32, 44);
+  text-decoration: none;
+  border-style: none;
+  outline: none;
+  font-size: 20px;
+  color: white;
+  width: 100%;
+}
+
+footer ul a {
+  display: inline-block;
+  text-align: center;
+  padding-top: 20px;
+  margin: 10px 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 10%;
+  background: rgb(43, 43, 65);
+  color: rgb(43, 223, 255);
+  font-size: 20px;
+}
+
+.submit__button {
+  background: rgb(91, 158, 160);
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 80px;
+  justify-self: right;
+  margin-left: auto;
+  color: white;
+  font-weight: bold;
+}
+.submit__button:hover{
+  background: rgb(49, 199, 204);
+}
+
+.submit__button:active{
+  background: rgb(34, 144, 148);
+}
+#contact__container {
+  width: 100%;
+  height: 100%;
+  background: rgb(40, 40, 54);
+  color: black;
+}
+
+.bar {
+  position: relative;
+  margin: 20% 0;
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  display: block;
+  transition: all 0.2s ease;
+}
+#hamburger.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(-45deg);
+}
+
+#hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(45deg);
+}
+
+@media screen and (max-width: 670px) {
+  #background {
+    box-sizing: border-box;
+    background-clip: border-box;
+    width: 100%;
+    background-size: 80vh 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #form__container {
+    width: 80%;
+  }
+  .contactinfo {
+    font-size: 15px;
+  }
+  
+  #intro {
+    font-size: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  nav {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  #hamburger {
+    display: list-item;
+    height: 100%;
+    margin: 10px 10px 0 auto;
+    position: absolute;
+    top: 0;
+    left: 90%;
+  }
+  .menu ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu {
+    text-align: center;
+    background: rgb(30, 30, 45);
+    transform-origin: top;
+    margin: 0;
+    padding: 20px 0;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+  }
+
+  .menu a {
+    padding: 10px;
+  }
+  .menu.hide {
+    transform: scaleY(0);
+  }
+}
+
+#mywork:hover {
+  animation: spinarrow 0.5s;
+}
+
+@keyframes spinarrow {
+  0% {
+    transform: rotateZ(0);
+  }
+  25% {
+    transform: rotateZ(5deg);
+  }
+  50% {
+    transform: rotateZ(-5deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
