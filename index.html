@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
-</head>
 
 <body>
     <div id="frontpage">
@@ -17,10 +16,10 @@
         <div id="intro">
             <h1>Hello, I'm<p class="color--red"> Jacob Partin</p>.</h1>
             <h1>I'm a freelance developer.</h1>
-            <button id="mywork">
+            <a id="mywork" href="#project__container">
                 <p>View My Work </p>
                 <div id="workarrow"><i class='fas fa-arrow-right'></i></div>
-            </button>
+            </a>
         </div>
     </div>
     <nav>
@@ -36,7 +35,7 @@
                 </li>
 
                 <li>
-                    <a id="projects" href="#projects">PROJECTS</a>
+                    <a href="#project__container">PROJECTS</a>
                 </li>
 
                 <li>
@@ -50,15 +49,20 @@
         </div>
     </nav>
     <section id="project__container">
-
-    </section>
+        <h1 id="project-name">PROJECTS</h1>
+        <span class="underbar2"></span>
+        <div class="projects">
+            <div class="project">
+            </div>   
+        </div>
+    </section >
     <section id="contact__container">
         <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%">
             <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
         </svg>
         <div id="contact__form">
             <h1>CONTACT</h1>
-            <span id="contactbar"></span>
+            <span class="underbar"></span>
             <p>Have a question or want to work with me?</p>
             <form id="form__container">
                 <input type="text" name="Name" id="input-name" placeholder="Name" class="contactinfo">

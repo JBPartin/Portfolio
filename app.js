@@ -3,10 +3,12 @@ const workarrow = document.getElementById("workarrow");
 const burger = document.getElementById("hamburger");
 const menu = document.querySelector(".menu");
 const canvas = document.getElementById("background");
+const intro = document.getElementById("intro");
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
 var ctx = canvas.getContext("2d");
 var scrollArea = 1000 - windowHeight;
+var attach = false;
 canvas.width = windowWidth;
 canvas.height = windowHeight
 let mouse = {
@@ -17,10 +19,6 @@ let mouse = {
 window.addEventListener('mousemove', function (event) {
   mouse.x = event.x;
   mouse.y = event.y;
-});
-
-canvas.addEventListener('dblclick', function(){
-  canvas.focus();
 });
 
 window.addEventListener('resize', function () {
@@ -34,25 +32,20 @@ window.addEventListener('mouseout', function () {
   mouse.x = undefined;
   mouse.y = undefined;
 });
-window.addEventListener('mousedown', function (event) {
-  switch (event.which) {
-    case 1:
-      for (let i = 0; i < 5; i++) {
-        let size = (Math.random() * 5) + 1;
-        let x = Math.random() * ((windowWidth - size * 2) - size * 2) + size * 2;
-        let y = Math.random() * ((windowHeight - size * 2) - size * 2) + size * 2;
-        let direction = (Math.random() * 2) - 2.5;
-        let rand = (Math.random() * 100) + 105;
-        let color = "rgb(" + rand + ",50" + "," + rand + ")"
-        particles.push(new particle(x, y, direction, direction, size, color));
-      }
-      break;
-    case 2:
-      for (let i = 0; i < particles.length / 2; i++) {
-        particles.pop();
-      }
-      break;
+
+canvas.addEventListener('touchmove', function(event){
+  mouse.x = event.changedTouches[0].pageX;
+  mouse.y = event.changedTouches[0].pageY;
+  if(attach){
+    event.preventDefault();
   }
+});
+
+canvas.addEventListener('dblclick', function(){
+    if(windowWidth < 670){
+      attach = !attach;
+       intro.classList.toggle("focus");
+    }
 });
 
 class particle {
@@ -134,7 +127,7 @@ class particle {
 
 let particles = [];
 function init() {
-  for (let i = 0; i < 150; i++) {
+  for (let i = 0; i < 250; i++) {
     let size = (Math.random() * 5) + 1;
     let x = Math.random() * ((windowWidth - size * 2) - size * 2) + size * 2;
     let y = Math.random() * ((windowHeight - size * 2) - size * 2) + size * 2;
@@ -186,14 +179,24 @@ workbutton.addEventListener("mouseover", function () {
 workbutton.addEventListener("mouseout", function () {
   workarrow.style.transform = "rotateZ(0deg)";
 });
-workbutton.addEventListener("click", function () {
-  document.body.scrollTop = window.innerHeight;
-  document.documentElement.scrollTop = window.innerHeight;
-});
 
 burger.addEventListener("click", function () {
   burger.classList.toggle("active");
   menu.classList.toggle("hide");
+});
+
+const test = document.querySelector(".projects");
+test.addEventListener("click", function () {
+var link = document.createElement('div');
+var image = document.createElement('div');
+var text = document.createElement('h1');
+text.innerHTML ='test';
+link.setAttribute('class', 'project');
+image.setAttribute('class', 'project-background');
+text.setAttribute('class', 'project-names');
+link.appendChild(image);
+link.appendChild(text);
+test.appendChild(link);
 });
 
 init();
