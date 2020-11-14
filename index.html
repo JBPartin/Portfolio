@@ -14,7 +14,7 @@
     <div id="frontpage">
         <canvas id="background"></canvas>
         <div id="intro">
-            <h1>Hello, I'm<p class="color--red"> Jacob Partin</p>.</h1>
+            <h1>Hello, I'm<a href="#project__container" class="color--red"> Jacob Partin</a>.</h1>
             <h1>I'm a freelance developer.</h1>
             <a id="mywork" href="#project__container">
                 <p>View My Work </p>
@@ -33,15 +33,9 @@
                 <li>
                     <a href="#frontpage">HOME</a>
                 </li>
-
                 <li>
                     <a href="#project__container">PROJECTS</a>
                 </li>
-
-                <li>
-                    <a href="#about">ABOUT</a>
-                </li>
-
                 <li>
                     <a href="#contact__container">CONTACT</a>
                 </li>
@@ -53,9 +47,11 @@
         <span class="underbar2"></span>
         <div class="projects">
             <div class="project">
-            </div>   
+                <div class="project-background"></div>
+                <h1 class="project-names">christodev.com</h1>
+            </div>
         </div>
-    </section >
+    </section>
     <section id="contact__container">
         <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%">
             <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
@@ -64,13 +60,14 @@
             <h1>CONTACT</h1>
             <span class="underbar"></span>
             <p>Have a question or want to work with me?</p>
-            <form id="form__container">
-                <input type="text" name="Name" id="input-name" placeholder="Name" class="contactinfo">
-                <input type="text" name="Name" id="input-email" placeholder="Email" class="contactinfo">
-                <textarea name="Message" id="input-message" cols="30" rows="100" placeholder="Your Message" class="contactinfo"></textarea>
-                <button type="button" class="submit__button">SUBMIT</button>
+            <form id="form__container" action="contact.php" method="post">
+                <input type="text" name="name" placeholder="Name" class="contactinfo">
+                <input type="text" name="email" placeholder="Email" class="contactinfo">
+                <textarea name="message" id="input-message" cols="30" rows="100" placeholder="Your Message"
+                    class="contactinfo"></textarea>
+                <input type="submit" value="Send" class="submit__button">
             </form>
-        </div>  
+        </div>
     </section>
     <footer>
         <a id="top" href="#frontpage"><i class="fas fa-chevron-up"></i></a>
@@ -78,9 +75,9 @@
             <a id="linkedin" href="https://www.linkedin.com/in/jacob-partin-8930361aa/"><i
                     class="fab fa-linkedin-in"></i></a>
             <a id="git" href="https://github.com/JBPartin"><i class="fab fa-github"></i></a>
+            <a id="discord" href="https://discord.gg/uBHu69q5T6"><i class="fab fa-discord"></i></a>
         </ul>
-        <p>JACOB PARTIN <aqua>©2020</aqua>
-        </p>
+        <p>JACOB PARTIN ©2020</p>
     </footer>
     <script src="app.js"></script>
 </body>

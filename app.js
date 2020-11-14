@@ -186,7 +186,9 @@ burger.addEventListener("click", function () {
 });
 
 const test = document.querySelector(".projects");
-test.addEventListener("click", function () {
+
+
+function createProject(){
 var link = document.createElement('div');
 var image = document.createElement('div');
 var text = document.createElement('h1');
@@ -197,6 +199,10 @@ text.setAttribute('class', 'project-names');
 link.appendChild(image);
 link.appendChild(text);
 test.appendChild(link);
+}
+test.addEventListener("click", () =>{
+  createProject();
 });
 
+createProject();
 init();

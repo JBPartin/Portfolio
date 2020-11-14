@@ -89,7 +89,8 @@ html {
 
 #mywork:hover {
   background: darkcyan;
-  outline: 3px solid aqua;
+  outline: 2px solid aqua;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.459));
   cursor: pointer;
   color: black;
 }
@@ -139,7 +140,15 @@ nav a:active {
 #project-name {
   margin-top: 6rem;
 }
-
+#about-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  margin: 0 auto;
+  color: rgb(58, 58, 58);
+}
 #hamburger {
   margin: auto;
   width: 25px;
@@ -162,14 +171,9 @@ footer {
   border-top: 2px solid rgb(21, 21, 31);
   z-index: 4;
 }
-
-aqua {
-  color: aqua;
-}
-
 footer p {
-  text-align: center;
-  margin-top: 20px;
+  position: absolute;
+  top: 80%;
 }
 
 #top {
@@ -217,7 +221,6 @@ footer p {
 }
 
 #contact__form p {
-  color: aqua;
   margin-top: 10px;
   font-size: 1rem;
   font-weight: bold;
@@ -226,6 +229,7 @@ footer p {
 #input-message {
   resize: none;
   height: 150px;
+  border: 1px solid rgba(0, 255, 255, 0.308);
 }
 
 #form__container {
@@ -234,6 +238,10 @@ footer p {
   width: 40%;
   height: 100%;
   margin: 20px;
+}
+
+#form__container input {
+  border: 1px solid rgba(0, 255, 255, 0.308);
 }
 
 .contactinfo {
@@ -249,7 +257,6 @@ footer p {
 }
 footer a:hover {
   background: rgb(64, 64, 95);
-  /* box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.664); */
   filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.459));
 }
 
@@ -257,7 +264,7 @@ footer ul a {
   display: inline-block;
   text-align: center;
   padding-top: 20px;
-  margin: 10px 30px;
+  margin: 20px 30px;
   width: 60px;
   height: 60px;
   border-radius: 10%;
@@ -267,19 +274,27 @@ footer ul a {
 }
 
 .submit__button {
-  background: rgb(91, 158, 160);
+  background: rgb(43, 43, 65);
   border: none;
   outline: none;
   height: 40px;
   width: 100px;
   justify-self: right;
   margin-left: auto;
-  color: white;
+  color: rgb(43, 223, 255);
   font-weight: bold;
   border-radius: 5px;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  display: flex;
 }
 .submit__button:hover {
-  background: rgb(49, 199, 204);
+  background: rgb(64, 64, 95);
+  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.459));
+  cursor: pointer;
 }
 
 .submit__button:active {
@@ -292,28 +307,29 @@ footer ul a {
   color: black;
 }
 
-
-.project-names{
+.project-names {
   font-size: 50px;
-  color: black;
+  color: white;
   z-index: 1;
   height: 0px;
 }
 
-.project-background{
+.project-background {
   background-image: url("../images/test.jpg");
-  background-size: 100% 100%;
+  background-size: 100%;
   background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
+  height: 70%;
+  width: 102%;
+  overflow: hidden;
   position: absolute;
   z-index: 0;
+  margin: 0 auto;
+  opacity: 90%;
+  border-radius: 10px 10px 0 0;
 }
 
-.project-background:hover{
-  filter: saturate(300%);
-  height: 102%;
-  width: 102%;
+.project:hover {
+  filter: drop-shadow(0 0px 15px rgb(0, 0, 0));
   cursor: pointer;
 }
 
@@ -322,9 +338,13 @@ footer ul a {
   justify-content: center;
   align-content: center;
   position: relative;
+  overflow: hidden;
   width: 30rem;
   height: 20rem;
   margin: 10px;
+  background: rgb(40, 40, 54);
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.856));
+  border-radius: 10px;
 }
 
 .projects {
@@ -427,6 +447,10 @@ footer ul a {
     width: 30rem;
     height: 20rem;
   }
+
+  footer ul a {
+    margin: 20px 5px;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -438,20 +462,4 @@ footer ul a {
 
 #mywork:hover {
   animation: spinarrow 0.5s;
-}
-
-@keyframes spinarrow {
-  0% {
-    transform: rotateZ(0);
-  }
-  25% {
-    transform: rotateZ(5deg);
-  }
-  50% {
-    transform: rotateZ(-5deg);
-  }
-
-  100% {
-    transform: rotateZ(0deg);
-  }
 }
