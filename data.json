@@ -1,0 +1,16 @@
+{
+    "projects": [
+        {
+            "image": "DevChristo.png",
+            "name": "www.devchristo.com",
+            "link": "https://www.devchristo.com/",
+            "desc": "Portfolio for a fellow plugin developer."
+        },
+        {
+            "image": "WelishCars.gif",
+            "name": "play.welishcraft.com",
+            "link": "none",
+            "desc": "Custom drivable car plugin for minecraft."
+        }
+    ]
+}

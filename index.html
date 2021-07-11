@@ -7,18 +7,25 @@
     <title>Jacob Partin</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("i-recaptcha").submit();
+        }
+    </script>
 </head>
 
 <body>
     <div id="frontpage">
         <canvas id="background"></canvas>
         <div id="intro">
-            <h1>Hello, I'm<a href="#project__container" class="color--red"> Jacob Partin</a>.</h1>
-            <h1>I'm a freelance developer.</h1>
-            <a id="mywork" href="#project__container">
-                <p>View My Work </p>
-                <div id="workarrow"><i class='fas fa-arrow-right'></i></div>
+            <h1 class="flow__object">Hello, I'm<a href="#project__container" class="color--red"> Jacob Partin</a>.</h1>
+            <h1 class="flow__object">I'm a freelance developer.</h1>
+            <a class="flow__object" id="mywork" href="#project__container">
+                <p class="flow__object">View My Work </p>
+                <div id="workarrow" class="flow__object"><i class='fas fa-arrow-right flow__object'></i></div>
             </a>
         </div>
     </div>
@@ -43,13 +50,9 @@
         </div>
     </nav>
     <section id="project__container">
-        <h1 id="project-name">PROJECTS</h1>
-        <span class="underbar2"></span>
+        <h1 class="flow__object" id="project-name">PROJECTS</h1>
+        <span class="underbar2 flow__object"></span>
         <div class="projects">
-            <div class="project">
-                <div class="project-background"></div>
-                <h1 class="project-names">christodev.com</h1>
-            </div>
         </div>
     </section>
     <section id="contact__container">
@@ -57,15 +60,22 @@
             <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
         </svg>
         <div id="contact__form">
-            <h1>CONTACT</h1>
-            <span class="underbar"></span>
-            <p>Have a question or want to work with me?</p>
-            <form id="form__container" action="contact.php" method="post">
-                <input type="text" name="name" placeholder="Name" class="contactinfo">
-                <input type="text" name="email" placeholder="Email" class="contactinfo">
+            <h1 class="flow__object">CONTACT</h1>
+            <span class="underbar flow__object"></span>
+            <p class="flow__object">Have a question or want to work with me?</p>
+            <form id='i-recaptcha' class="form__container" action="contact.php" method="post">
+                <input type="text" name="name" placeholder="Name" class="contactinfo flow__object">
+                <input type="text" name="email" placeholder="Email" class="contactinfo flow__object">
                 <textarea name="message" id="input-message" cols="30" rows="100" placeholder="Your Message"
-                    class="contactinfo"></textarea>
-                <input type="submit" value="Send" class="submit__button">
+                    class="contactinfo flow__object"></textarea>
+                <h1 class="captcha flow__object"> This site is protected by reCAPTCHA and the Google
+                    <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                    <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                </h1>
+                <button class="g-recaptcha submit__button flow__object"
+                    data-sitekey="6LcxxFoaAAAAAGMvCHcukRqICwLskKNtm6yOrMX8" data-callback="onSubmit">
+                    Submit
+                </button>
             </form>
         </div>
     </section>
@@ -80,6 +90,9 @@
         <p>JACOB PARTIN ©2020</p>
     </footer>
     <script src="app.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+    </script>
+    
 </body>
 
 </html>

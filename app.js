@@ -1,12 +1,12 @@
-const workbutton = document.getElementById("mywork");
-const workarrow = document.getElementById("workarrow");
-const burger = document.getElementById("hamburger");
-const menu = document.querySelector(".menu");
-const canvas = document.getElementById("background");
-const intro = document.getElementById("intro");
+const workbutton = document.getElementById('mywork');
+const workarrow = document.getElementById('workarrow');
+const burger = document.getElementById('hamburger');
+const menu = document.querySelector('.menu');
+const canvas = document.getElementById('background');
+const intro = document.getElementById('intro');
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
-var ctx = canvas.getContext("2d");
+var ctx = canvas.getContext('2d');
 var scrollArea = 1000 - windowHeight;
 var attach = false;
 canvas.width = windowWidth;
@@ -16,6 +16,77 @@ let mouse = {
   y: null,
   radius: (canvas.height / 60) * (canvas.width / 60)
 }
+
+let contentlist;
+let data;
+const projectdiv = document.querySelector('.projects');
+window.addEventListener('load', () => {
+  readTextFile('data.json', function (text) {
+    data = JSON.parse(text);
+    for (let x in data.projects) {
+      let name = document.createTextNode(data.projects[x].name);
+      let img = document.createElement('img');
+      img.src = 'images/' + data.projects[x].image;
+      let project = document.createElement('div');
+      let text = document.createElement('h1');
+      let desc = document.createElement('p');
+      desc.innerHTML = data.projects[x].desc;
+      text.appendChild(name);
+      project.classList.add('project');
+      project.classList.add('flow__object');
+      img.classList.add('project-background');
+      text.setAttribute('class', 'project-names');
+      project.appendChild(text);
+      project.appendChild(img);
+      project.appendChild(desc);
+      projectdiv.appendChild(project);
+    }
+    contentlist = document.querySelectorAll('.flow__object');
+    for (let content in contentlist) {
+      if (content >= 0) {
+        const position = contentlist[content].getBoundingClientRect().top;
+        const windowheight = window.innerHeight;
+        if (position < windowheight) {
+          contentlist[content].classList.add('flow');
+        } else {
+          contentlist[content].classList.remove('flow');
+        }
+      }
+    }
+  });
+});
+window.addEventListener('click', (clicked) => {
+  let list = projectdiv.getElementsByClassName('project');
+  if (projectdiv.contains(clicked.target)) {
+    for (let x in list) {
+      if (list[x] instanceof HTMLDivElement) {
+        if (list[x].contains(clicked.target)) {
+          if (data.projects[x].link != "none") {
+            var newwindow= window.open('');
+            newwindow.location.replace(data.projects[x].link);
+          }
+        }
+      }
+    }
+  }
+});
+
+
+contentlist = document.querySelectorAll('.flow__object');
+window.addEventListener('scroll', () => {
+  for (let content in contentlist) {
+    if (content >= 0) {
+      const position = contentlist[content].getBoundingClientRect().top;
+      const windowheight = window.innerHeight;
+      if (position < windowheight) {
+        contentlist[content].classList.add('flow');
+      } else {
+        contentlist[content].classList.remove('flow');
+      }
+    }
+  }
+});
+
 window.addEventListener('mousemove', function (event) {
   mouse.x = event.x;
   mouse.y = event.y;
@@ -33,19 +104,19 @@ window.addEventListener('mouseout', function () {
   mouse.y = undefined;
 });
 
-canvas.addEventListener('touchmove', function(event){
+canvas.addEventListener('touchmove', function (event) {
   mouse.x = event.changedTouches[0].pageX;
   mouse.y = event.changedTouches[0].pageY;
-  if(attach){
+  if (attach) {
     event.preventDefault();
   }
-});
+}, true);
 
-canvas.addEventListener('dblclick', function(){
-    if(windowWidth < 670){
-      attach = !attach;
-       intro.classList.toggle("focus");
-    }
+canvas.addEventListener('dblclick', function () {
+  if (windowWidth < 670) {
+    attach = !attach;
+    intro.classList.toggle('focus');
+  }
 });
 
 class particle {
@@ -69,21 +140,21 @@ class particle {
   update() {
     this.frames++;
     if (this.frames > (Math.random() * 20) + 5) {
-      this.directionX += (((Math.random()*2) -1) *.7);
-      this.directionY += (((Math.random()*2) -1) *.7);
+      this.directionX += (((Math.random() * 2) - 1) * .7);
+      this.directionY += (((Math.random() * 2) - 1) * .7);
       this.frames = 0;
-      this.opacity += (((Math.random()*2) -1) *.1);
+      this.opacity += (((Math.random() * 2) - 1) * .1);
       this.color = `rgba(${this.rand},50,${this.rand},${this.opacity})`;
     }
-    if(this.directionX > 2 || this.directionX < -2){
+    if (this.directionX > 2 || this.directionX < -2) {
       this.directionX = Math.sign(this.directionX) * 1.5;
     }
-    
-    if(this.directionY > 2 || this.directionY < -2){
+
+    if (this.directionY > 2 || this.directionY < -2) {
       this.directionY = Math.sign(this.directionY) * 1.5;
     }
 
-    if(this.opacity > 1 || this.opacity < .3){
+    if (this.opacity > 1 || this.opacity < .3) {
       this.opacity = .5;
     }
 
@@ -159,7 +230,7 @@ function conntect() {
       if (distance < ((windowWidth / 10) * (windowHeight / 10))) {
         if (count < linelimit) {
           let rand = (Math.random() * 100) + 105;
-          let color = "rgb(" + rand + ",50" + "," + rand + ")"
+          let color = 'rgb(' + rand + ',50' + ',' + rand + ')'
           ctx.strokeStyle = color;
           ctx.lineWidth = 1;
           ctx.beginPath();
@@ -173,36 +244,31 @@ function conntect() {
   }
 }
 
-workbutton.addEventListener("mouseover", function () {
-  workarrow.style.transform = "rotateZ(90deg)";
+workbutton.addEventListener('mouseover', function () {
+  workarrow.style.transform = 'rotateZ(90deg)';
 });
-workbutton.addEventListener("mouseout", function () {
-  workarrow.style.transform = "rotateZ(0deg)";
-});
-
-burger.addEventListener("click", function () {
-  burger.classList.toggle("active");
-  menu.classList.toggle("hide");
+workbutton.addEventListener('mouseout', function () {
+  workarrow.style.transform = 'rotateZ(0deg)';
 });
 
-const test = document.querySelector(".projects");
+burger.addEventListener('click', function () {
+  burger.classList.toggle('active');
+  menu.classList.toggle('hide');
+});
 
 
-function createProject(){
-var link = document.createElement('div');
-var image = document.createElement('div');
-var text = document.createElement('h1');
-text.innerHTML ='test';
-link.setAttribute('class', 'project');
-image.setAttribute('class', 'project-background');
-text.setAttribute('class', 'project-names');
-link.appendChild(image);
-link.appendChild(text);
-test.appendChild(link);
+
+//read data.json
+function readTextFile(file, callback) {
+  var rawFile = new XMLHttpRequest();
+  rawFile.overrideMimeType('application/json');
+  rawFile.open('GET', file, true);
+  rawFile.onreadystatechange = function () {
+    if (rawFile.readyState === 4 && rawFile.status == '200') {
+      callback(rawFile.responseText);
+    }
+  }
+  rawFile.send(null);
 }
-test.addEventListener("click", () =>{
-  createProject();
-});
 
-createProject();
 init();
