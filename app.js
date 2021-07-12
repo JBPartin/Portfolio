@@ -4,17 +4,17 @@ const burger = document.getElementById('hamburger');
 const menu = document.querySelector('.menu');
 const canvas = document.getElementById('background');
 const intro = document.getElementById('intro');
-var windowWidth = window.innerWidth;
-var windowHeight = window.innerHeight;
-var ctx = canvas.getContext('2d');
-var scrollArea = 1000 - windowHeight;
-var attach = false;
+let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
+let ctx = canvas.getContext('2d');
+let scrollArea = 1000 - windowHeight;
+let attach = false;
 canvas.width = windowWidth;
 canvas.height = windowHeight
 let mouse = {
   x: null,
   y: null,
-  radius: (canvas.height / 60) * (canvas.width / 60)
+  radius: canvas.height < canvas.width ? canvas.height / 5 : canvas.width / 5
 }
 
 let contentlist;
@@ -55,25 +55,54 @@ window.addEventListener('load', () => {
     }
   });
 });
-window.addEventListener('click', (clicked) => {
-  let list = projectdiv.getElementsByClassName('project');
-  if (projectdiv.contains(clicked.target)) {
-    for (let x in list) {
-      if (list[x] instanceof HTMLDivElement) {
-        if (list[x].contains(clicked.target)) {
-          if (data.projects[x].link != "none") {
-            var newwindow= window.open('');
-            newwindow.location.replace(data.projects[x].link);
-          }
-        }
-      }
+
+
+function expandImage(div, target) {
+  const background = document.createElement('div');
+  background.className = 'clone-background';
+  div.className = 'clone';
+  const btns = document.createElement('div');
+  btns.className = 'btn-container'
+  let x = Array.prototype.indexOf.call(target.parentNode.children, target);
+  if (data.projects[x].link != "none") {
+    const link = document.createElement('button');
+    link.innerHTML = 'Website';
+    btns.appendChild(link);
+    link.onclick = () => {
+      let newwindow = window.open('');
+      newwindow.location.replace(data.projects[x].link);
     }
+  }
+  if (data.projects[x].github != "none") {
+    const link = document.createElement('button');
+    link.innerHTML = 'Github';
+    btns.appendChild(link);
+    link.onclick = () => {
+      let newwindow = window.open('');
+      newwindow.location.replace(data.projects[x].github);
+    }
+  }
+  div.appendChild(btns);
+  background.appendChild(div);
+  document.body.prepend(background);
+}
+
+
+window.addEventListener('click', (clicked) => {
+  if (Array.from(clicked.target.classList).includes('project')) {
+    expandImage(clicked.target.cloneNode(true), clicked.target);
+  } else if (Array.from(clicked.target.parentNode.classList).includes('project')) {
+    expandImage(clicked.target.parentNode.cloneNode(true), clicked.target.parentNode);
+  }
+  if (Array.from(clicked.target.classList).includes('clone-background')) {
+    clicked.target.remove();
+  } else if (Array.from(clicked.target.parentNode.classList).includes('clone')) {
+    clicked.target.parentNode.parentNode.remove();
   }
 });
 
-
 contentlist = document.querySelectorAll('.flow__object');
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', (e) => {
   for (let content in contentlist) {
     if (content >= 0) {
       const position = contentlist[content].getBoundingClientRect().top;
@@ -85,19 +114,20 @@ window.addEventListener('scroll', () => {
       }
     }
   }
-});
+}, { passive: false });
 
 window.addEventListener('mousemove', function (event) {
+  console.log();
   mouse.x = event.x;
-  mouse.y = event.y;
+  mouse.y = event.y + window.pageYOffset;
 });
 
 window.addEventListener('resize', function () {
   windowHeight = window.innerHeight;
   windowWidth = window.innerWidth;
   canvas.width = windowWidth;
-  canvas.height = windowHeight
-  mouse.radius = (canvas.height / 60) * (canvas.width / 60)
+  canvas.height = windowHeight;
+  mouse.radius = canvas.height < canvas.width ? canvas.height / 3 : canvas.width / 5;
 });
 window.addEventListener('mouseout', function () {
   mouse.x = undefined;
@@ -106,7 +136,7 @@ window.addEventListener('mouseout', function () {
 
 canvas.addEventListener('touchmove', function (event) {
   mouse.x = event.changedTouches[0].pageX;
-  mouse.y = event.changedTouches[0].pageY;
+  mouse.y = event.changedTouches[0].pageY + window.pageYOffset;
   if (attach) {
     event.preventDefault();
   }
@@ -119,7 +149,7 @@ canvas.addEventListener('dblclick', function () {
   }
 });
 
-class particle {
+class Particle {
   constructor(x, y, directionX, directionY, size, color) {
     this.x = x;
     this.y = y;
@@ -206,7 +236,7 @@ function init() {
     let rand = (Math.random() * 100) + 105;
     let opacity = (Math.random() * 100) * .1;
     let color = `rgba(${rand},50,${rand},${opacity})`;
-    particles.push(new particle(x, y, direction, direction, size, color));
+    particles.push(new Particle(x, y, direction, direction, size, color));
   }
   animate();
 }
@@ -260,7 +290,7 @@ burger.addEventListener('click', function () {
 
 //read data.json
 function readTextFile(file, callback) {
-  var rawFile = new XMLHttpRequest();
+  let rawFile = new XMLHttpRequest();
   rawFile.overrideMimeType('application/json');
   rawFile.open('GET', file, true);
   rawFile.onreadystatechange = function () {

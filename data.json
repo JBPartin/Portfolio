@@ -1,16 +1,32 @@
 {
-    "projects": [
-        {
-            "image": "DevChristo.png",
-            "name": "www.devchristo.com",
-            "link": "https://www.devchristo.com/",
-            "desc": "Portfolio for a fellow plugin developer."
-        },
-        {
-            "image": "WelishCars.gif",
-            "name": "play.welishcraft.com",
-            "link": "none",
-            "desc": "Custom drivable car plugin for minecraft."
-        }
-    ]
+  "projects": [
+    {
+      "image": "Reply.gif",
+      "name": "Reply",
+      "link": "none",
+      "github": "https://github.com/JBPartin/Reply-socialmedia",
+      "desc": "A social media app developed using React.js and Firebase for authentication, file storage and database."
+    },
+    {
+      "image": "GameEngine.gif",
+      "name": "Game Engine",
+      "link": "none",
+      "github": "https://github.com/JBPartin/WebGameEngine",
+      "desc": "A game engine that I am still currently developing on with batch rendering, animation, scripting and scene editor."
+    },
+    {
+      "image": "TodoApp.gif",
+      "name": "React Todo App",
+      "link": "none",
+      "github": "https://github.com/JBPartin/ReactTodoApp",
+      "desc": "Created in React.js and uses localstorage to store created todo list items."
+    },
+    {
+      "image": "DevChristo.gif",
+      "name": "www.devchristo.com",
+      "link": "https://www.devchristo.com/",
+      "github": "https://github.com/JBPartin/devchristo.com",
+      "desc": "Portfolio for a Java Developer and friend."
+    }
+  ]
 }

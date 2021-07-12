@@ -64,9 +64,10 @@
             <span class="underbar flow__object"></span>
             <p class="flow__object">Have a question or want to work with me?</p>
             <form id='i-recaptcha' class="form__container" action="contact.php" method="post">
-                <input type="text" name="name" placeholder="Name" class="contactinfo flow__object">
-                <input type="text" name="email" placeholder="Email" class="contactinfo flow__object">
-                <textarea name="message" id="input-message" cols="30" rows="100" placeholder="Your Message"
+                <input name="website" type="text" class="website"/>
+                <input type="text" name="name-input" placeholder="Name" class="contactinfo flow__object">
+                <input type="text" name="email-input" placeholder="Email" class="contactinfo flow__object">
+                <textarea name="message-input" id="input-message" cols="30" rows="100" placeholder="Your Message"
                     class="contactinfo flow__object"></textarea>
                 <h1 class="captcha flow__object"> This site is protected by reCAPTCHA and the Google
                     <a href="https://policies.google.com/privacy">Privacy Policy</a> and
@@ -87,7 +88,7 @@
             <a id="git" href="https://github.com/JBPartin"><i class="fab fa-github"></i></a>
             <a id="discord" href="https://discord.gg/uBHu69q5T6"><i class="fab fa-discord"></i></a>
         </ul>
-        <p>JACOB PARTIN ©2020</p>
+        <p>JACOB PARTIN ©2021</p>
     </footer>
     <script src="app.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
