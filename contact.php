@@ -16,5 +16,4 @@ if (isset($_POST["website"]) && $_POST["website"] == "") {
     http_response_code(400);
     exit;
   }
-
 ?>

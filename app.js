@@ -32,6 +32,13 @@ window.addEventListener('load', () => {
       let desc = document.createElement('p');
       desc.innerHTML = data.projects[x].desc;
       text.appendChild(name);
+      project.onclick = (clicked) => {
+        if (Array.from(clicked.target.classList).includes('project')) {
+          expandImage(clicked.target.cloneNode(true), clicked.target);
+        } else if (Array.from(clicked.target.parentNode.classList).includes('project')) {
+          expandImage(clicked.target.parentNode.cloneNode(true), clicked.target.parentNode);
+        }
+      }
       project.classList.add('project');
       project.classList.add('flow__object');
       img.classList.add('project-background');
@@ -56,9 +63,25 @@ window.addEventListener('load', () => {
   });
 });
 
+function submitForm() {
+  let form = document.getElementById("i-recaptcha");
+  fetch(form.action, {
+    method: 'post',
+    body: new FormData(form),
+  }).then(res => {
+    return res.text()
+  }).then(res => {alert(res); form.reset();});
+}
 
 function expandImage(div, target) {
   const background = document.createElement('div');
+  background.onclick = (clicked) => {
+    if (Array.from(clicked.target.classList).includes('clone-background')) {
+      clicked.target.remove();
+    } else if (Array.from(clicked.target.parentNode.classList).includes('clone')) {
+      clicked.target.parentNode.parentNode.remove();
+    }
+  }
   background.className = 'clone-background';
   div.className = 'clone';
   const btns = document.createElement('div');
@@ -86,20 +109,6 @@ function expandImage(div, target) {
   background.appendChild(div);
   document.body.prepend(background);
 }
-
-
-window.addEventListener('click', (clicked) => {
-  if (Array.from(clicked.target.classList).includes('project')) {
-    expandImage(clicked.target.cloneNode(true), clicked.target);
-  } else if (Array.from(clicked.target.parentNode.classList).includes('project')) {
-    expandImage(clicked.target.parentNode.cloneNode(true), clicked.target.parentNode);
-  }
-  if (Array.from(clicked.target.classList).includes('clone-background')) {
-    clicked.target.remove();
-  } else if (Array.from(clicked.target.parentNode.classList).includes('clone')) {
-    clicked.target.parentNode.parentNode.remove();
-  }
-});
 
 contentlist = document.querySelectorAll('.flow__object');
 window.addEventListener('scroll', (e) => {
