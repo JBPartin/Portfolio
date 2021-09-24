@@ -1,6 +1,20 @@
 {
   "projects": [
     {
+      "image": "DevChristo.gif",
+      "name": "www.devchristo.com",
+      "link": "https://www.devchristo.com/",
+      "github": "https://github.com/JBPartin/devchristo.com",
+      "desc": "Portfolio for a Java Developer and friend."
+    },
+    {
+      "image": "NetflixClone.gif",
+      "name": "Netflix Clone",
+      "link": "none",
+      "github": "https://github.com/JBPartin/netflixclone",
+      "desc": "A netflix clone developed in react using tmdb api to display movies and a react-carousel library I published to npmjs."
+    },
+    {
       "image": "Reply.gif",
       "name": "Reply",
       "link": "none",
@@ -20,13 +34,6 @@
       "link": "none",
       "github": "https://github.com/JBPartin/ReactTodoApp",
       "desc": "Created in React.js and uses localstorage to store created todo list items."
-    },
-    {
-      "image": "DevChristo.gif",
-      "name": "www.devchristo.com",
-      "link": "https://www.devchristo.com/",
-      "github": "https://github.com/JBPartin/devchristo.com",
-      "desc": "Portfolio for a Java Developer and friend."
     }
   ]
 }

@@ -99,7 +99,7 @@ nav {
   width: 100%;
   background-color: rgb(30, 30, 45);
   border-bottom: 3px solid lightslategray;
-  z-index: 999;
+  z-index: 2;
   position: relative;
 }
 nav ul {
@@ -312,7 +312,7 @@ footer ul a {
 }
 
 .projects {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -325,11 +325,12 @@ footer ul a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: fit-content;
-  width: 350px;
+  height: 350px;
+  width: 100%;
+  max-width: 480px;
   background-color: rgb(40, 40, 54);
   padding: 10px;
-  margin: 10px;
+  margin: 10px 5px;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -472,7 +473,8 @@ footer ul a {
   align-items: center;
   height: fit-content;
   max-height: 80vh;
-  width: 80vw;
+  width: 100vw;
+  max-width: 1000px;
   background-color: rgb(40, 40, 54);
   padding: 10px;
   border-radius: 10px;
@@ -487,7 +489,6 @@ footer ul a {
 }
 .clone img {
   height: fit-content;
-  width: 90%;
   overflow: hidden;
   object-fit: scale-down;
   margin: 20px 0;
@@ -502,7 +503,7 @@ footer ul a {
   align-items: center;
   padding: 0;
   margin: 0;
-  z-index: 5;
+  z-index: 10;
 }
 .btn-container {
   width: 100%;
