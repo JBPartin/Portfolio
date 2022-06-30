@@ -206,7 +206,7 @@ footer p {
 }
 
 .grecaptcha-badge {
-  visibility: hidden;
+  visibility: visible;
 }
 
 .underbar {
