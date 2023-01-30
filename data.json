@@ -1,13 +1,6 @@
 {
   "projects": [
     {
-      "image": "DevChristo.gif",
-      "name": "www.devchristo.com",
-      "link": "https://www.devchristo.com/",
-      "github": "https://github.com/JBPartin/devchristo.com",
-      "desc": "Portfolio for a Java Developer and friend."
-    },
-    {
       "image": "NetflixClone.gif",
       "name": "Netflix Clone",
       "link": "https://jpnetflixclone.netlify.app/",
@@ -27,6 +20,20 @@
       "link": "none",
       "github": "https://github.com/JBPartin/WebGameEngine",
       "desc": "A game engine that I am still currently developing on with batch rendering, animation, scripting and scene editor."
+    },
+    {
+      "image": "Snake.gif",
+      "name": "Snake Game",
+      "link": "none",
+      "github": "none",
+      "desc": "A fun classic game remade from scratch in C++ while having fun messing around and expanding my knowledge in another language."
+    },
+    {
+      "image": "DevChristo.gif",
+      "name": "www.devchristo.com",
+      "link": "none",
+      "github": "https://github.com/JBPartin/devchristo.com",
+      "desc": "Portfolio for a Java Developer and friend."
     }
   ]
 }
