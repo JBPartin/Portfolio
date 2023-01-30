@@ -10,14 +10,14 @@
     {
       "image": "NetflixClone.gif",
       "name": "Netflix Clone",
-      "link": "none",
+      "link": "https://jpnetflixclone.netlify.app/",
       "github": "https://github.com/JBPartin/netflixclone",
       "desc": "A netflix clone developed in react using tmdb api to display movies and a react-carousel library I published to npmjs."
     },
     {
       "image": "Reply.gif",
       "name": "Reply",
-      "link": "none",
+      "link": "https://replymedia.netlify.app/",
       "github": "https://github.com/JBPartin/Reply-socialmedia",
       "desc": "A social media app developed using React.js and Firebase for authentication, file storage and database."
     },
@@ -27,13 +27,6 @@
       "link": "none",
       "github": "https://github.com/JBPartin/WebGameEngine",
       "desc": "A game engine that I am still currently developing on with batch rendering, animation, scripting and scene editor."
-    },
-    {
-      "image": "TodoApp.gif",
-      "name": "React Todo App",
-      "link": "none",
-      "github": "https://github.com/JBPartin/ReactTodoApp",
-      "desc": "Created in React.js and uses localstorage to store created todo list items."
     }
   ]
 }

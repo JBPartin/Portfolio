@@ -64,22 +64,22 @@ class Global{
       const btns = document.createElement('div');
       btns.className = 'btn-container'
       let x = Array.prototype.indexOf.call(target.parentNode.children, target);
-      if (data.projects[x].link != "none") {
+      if (this.data.projects[x].link != "none") {
         const link = document.createElement('button');
         link.innerHTML = 'Website';
         btns.appendChild(link);
         link.onclick = () => {
           let newwindow = window.open('');
-          newwindow.location.replace(data.projects[x].link);
+          newwindow.location.replace(this.data.projects[x].link);
         }
       }
-      if (data.projects[x].github != "none") {
+      if (this.data.projects[x].github != "none") {
         const link = document.createElement('button');
         link.innerHTML = 'Github';
         btns.appendChild(link);
         link.onclick = () => {
           let newwindow = window.open('');
-          newwindow.location.replace(data.projects[x].github);
+          newwindow.location.replace(this.data.projects[x].github);
         }
       }
       div.appendChild(btns);
@@ -97,6 +97,7 @@ class Events{
     this.mouseEvent();
     this.elementEvent();
   }
+  
   windowEvent(){
     const global = this.global
     window.addEventListener('load', () => {
@@ -113,9 +114,9 @@ class Events{
           text.appendChild(name);
           project.onclick = (clicked) => {
             if (Array.from(clicked.target.classList).includes('project')) {
-              this.global.expandImage(clicked.target.cloneNode(true), clicked.target);
+              global.expandImage(clicked.target.cloneNode(true), clicked.target);
             } else if (Array.from(clicked.target.parentNode.classList).includes('project')) {
-              this.global.expandImage(clicked.target.parentNode.cloneNode(true), clicked.target.parentNode);
+              global.expandImage(clicked.target.parentNode.cloneNode(true), clicked.target.parentNode);
             }
           }
           project.classList.add('project');
