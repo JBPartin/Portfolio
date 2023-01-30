@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST["website"]) && $_POST["website"] == "") {
+if (isset($_POST["website"]) && empty($_POST["website"])) {
     if (isset($_POST['name-input']) && isset($_POST['email-input']) && isset($_POST['message-input'])) {
         $to      = 'jakebpartin@gmail.com';
         $name = $_POST["name-input"];

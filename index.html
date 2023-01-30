@@ -9,12 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
         integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>
-        function onSubmit(token) {
-            document.getElementById("i-recaptcha").submit();
-        }
-    </script>
 </head>
 
 <body>
@@ -63,20 +57,15 @@
             <h1 class="flow__object">CONTACT</h1>
             <span class="underbar flow__object"></span>
             <p class="flow__object">Have a question or want to work with me?</p>
-            <form id='i-recaptcha' class="form__container" action='contact.php' onsubmit="screen.global.submitForm(); return false">
-                <input name="website" type="text" class="website"/>
+            <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+
+            <form id='i-recaptcha' class="form__container" action='contact.php' onsubmit="screen.global.submitForm(); return false" method="post" target="dummyframe">
+                <input type="text" name="website" class="website"/>
                 <input type="text" name="name-input" placeholder="Name" class="contactinfo flow__object">
                 <input type="text" name="email-input" placeholder="Email" class="contactinfo flow__object">
                 <textarea name="message-input" id="input-message" cols="30" rows="100" placeholder="Your Message"
                     class="contactinfo flow__object"></textarea>
-                    <h1 class="captcha flow__object"> This site is protected by reCAPTCHA and the Google
-                        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-                        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-                    </h1>
-                    <button class="g-recaptcha submit__button flow__object"
-                        data-sitekey="6LcxxFoaAAAAAGMvCHcukRqICwLskKNtm6yOrMX8" data-callback="onSubmit">
-                        Submit
-                    </button>
+                    <button class="g-recaptcha submit__button flow__object">Submit</button>
             </form>
         </div>
     </section>
@@ -91,7 +80,6 @@
         <p>JACOB PARTIN ©2023</p>
     </footer>
     <script src="app.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 </body>
 
 </html>
