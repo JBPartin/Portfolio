@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST["website"]) && empty($_POST["website"])) {
-    if (isset($_POST['name-input']) && isset($_POST['email-input']) && isset($_POST['message-input'])) {
+    if ((isset($_POST['name-input']) && isset($_POST['email-input']) && isset($_POST['message-input'])) && (!empty($_POST['name-input']) && !empty($_POST['email-input']) && !empty($_POST['message-input']))) {
         $to      = 'jakebpartin@gmail.com';
         $name = $_POST["name-input"];
         $subject = "Portfolio Contact by " . $name;
